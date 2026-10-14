@@ -21,3 +21,12 @@
          url("/static/fonts/Inter-Regular.woff2") format("woff");
     font-weight: 400;
 }
+
+@font-face {
+    font-family: "MetaPro";
+    src: local('MetaPro Bold'), local('MetaPro-Bold'),
+         url("/static/fonts/MetaPro-Bold_0.otf") format("opentype");
+    font-weight: 700;
+    font-style: normal;
+}
+
