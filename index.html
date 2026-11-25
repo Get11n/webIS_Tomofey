@@ -3,21 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lesson 4 — Mobile and Web Development</title>
+    <title>Lesson 5 — Responsive Mobile and Web Development</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="site-header">
         <a class="site-logo" href="index.html">THOUSAND</a>
-        <nav class="main-navigation">
+
+        <nav class="main-navigation" aria-label="Main navigation">
             <ul class="navigation-list">
-                <li><a href="#">Services</a></li>
+                <li><a href="#services">Services</a></li>
                 <li><a href="#">Media</a></li>
                 <li><a href="#">Cases</a></li>
                 <li><a href="#">FAQ</a></li>
                 <li><a href="#contacts">Contacts</a></li>
             </ul>
         </nav>
+
         <div class="header-contacts">
             <div class="header-phones">
                 <img src="src/icon-phone.svg" alt="" width="24" height="24">
@@ -29,57 +31,109 @@
                 thousanditcompany@gmail.com
             </a>
         </div>
+
+        <!-- На узком экране меню открывается стандартным элементом details. -->
+        <div class="header-actions">
+            <a class="header-call" href="tel:+77072548147" aria-label="Call us">
+                <img src="src/icon-phone.svg" alt="" width="24" height="24">
+            </a>
+            <details class="mobile-menu">
+                <summary>
+                    <span class="menu-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Navigation menu</span>
+                </summary>
+                <nav class="mobile-navigation" aria-label="Mobile navigation">
+                    <ul>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#">Media</a></li>
+                        <li><a href="#">Cases</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#contacts">Contacts</a></li>
+                    </ul>
+                    <a href="tel:+77072548147">+7 (707) 254-81-47</a>
+                    <a href="mailto:thousanditcompany@gmail.com">thousanditcompany@gmail.com</a>
+                </nav>
+            </details>
+        </div>
     </header>
 
     <main class="main-content">
-        <div class="hero">
-            <section class="hero-content">
-                <div class="hero-description">
-                    <h1>Development of <span class="accent">mobile applications</span> and <span class="accent">web services</span> of any complexity</h1>
-                    <p>We create mobile applications for iOS and Android that transfer your business to your customers' devices.</p>
+        <!-- Первый экран. -->
+        <section class="hero">
+            <div class="hero-inner">
+                <div class="hero-content">
+                    <div class="hero-description">
+                        <h1>Development of <span class="accent">mobile applications</span> and <span class="accent">web services</span> of any complexity</h1>
+                        <p>We create mobile applications for iOS and Android that transfer your business to your customers' devices.</p>
+                    </div>
+
+                    <div class="consultation" id="consultation">
+                        <h2>Leave your contacts and we will call you back within 30 minutes</h2>
+                        <form class="consultation-form">
+                            <div class="form-field">
+                                <label for="consultation-phone">Phone number</label>
+                                <input type="tel" id="consultation-phone" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel">
+                            </div>
+                            <div class="form-field">
+                                <label for="consultation-name">Full name</label>
+                                <input type="text" id="consultation-name" name="fullname" placeholder="Your full name" autocomplete="name">
+                            </div>
+                            <button type="submit">Get consultation</button>
+                        </form>
+                    </div>
                 </div>
-                <div class="consultation" id="consultation">
-                    <h2>Leave your contacts and we will call you back within 30 minutes</h2>
-                    <form class="consultation-form">
-                        <div class="form-field">
-                            <label for="consultation-phone">Phone number</label>
-                            <input type="tel" id="consultation-phone" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel">
-                        </div>
-                        <div class="form-field">
-                            <label for="consultation-name">Full name</label>
-                            <input type="text" id="consultation-name" name="fullname" placeholder="Your full name" autocomplete="name">
-                        </div>
-                        <button type="submit">Get consultation</button>
-                    </form>
-                </div>
-            </section>
-            <img class="hero-image" src="src/hero-desktop.webp" alt="Examples of mobile application screens" width="812" height="900">
-        </div>
+            </div>
+
+            <!-- Браузер выбирает подходящую картинку по ширине окна. -->
+            <picture class="hero-visual">
+                <source media="(max-width: 575px)" srcset="src/hero-mobile.webp">
+                <source media="(max-width: 1199px)" srcset="src/hero-tablet.webp">
+                <img class="hero-image" src="src/hero-desktop.webp" alt="Examples of mobile application screens" width="812" height="900">
+            </picture>
+        </section>
+
+        <!-- Второй экран. -->
+        <section class="services" id="services">
+            <div class="services-description">
+                <h2>Full development cycle</h2>
+                <p>We use proven technologies.</p>
+                <h3>Web</h3>
+                <p class="technology-list">PHP / JavaScript / Node.js / WebSocket / Socket.io / Vue.js / Nuxt / MySQL / Laravel / Go / Django / Python</p>
+                <h3>Mobile</h3>
+                <p class="technology-list">Swift / Kotlin / Alamofire / Firebase / CoreData / Room / Realm / Coroutine / RxJava / RxSwift / Unit Test / Navigation</p>
+            </div>
+
+            <nav class="services-navigation" aria-label="Development services">
+                <ul class="services-list">
+                    <li><a href="#consultation">iOS development <span aria-hidden="true">›</span></a></li>
+                    <li><a href="#consultation">Android development <span aria-hidden="true">›</span></a></li>
+                    <li><a href="#consultation">Web development <span aria-hidden="true">›</span></a></li>
+                    <li><a href="#consultation">UI/UX design <span aria-hidden="true">›</span></a></li>
+                    <li><a href="#consultation">Testing <span aria-hidden="true">›</span></a></li>
+                    <li><a href="#consultation">Launch <span aria-hidden="true">›</span></a></li>
+                    <li><a href="#consultation">IT consulting <span aria-hidden="true">›</span></a></li>
+                </ul>
+            </nav>
+        </section>
     </main>
-
-
 
     <footer class="site-footer" id="contacts">
         <h2>IT WEBSITE</h2>
         <div class="footer-contacts">
             <div class="footer-contact">
-                <h3>
-<img src="src/icon-phone-gray.svg" alt="" width="24" height="24"> Contact nums</h3>
+                <h3><img src="src/icon-phone-gray.svg" alt="" width="24" height="24"> Contact number</h3>
                 <a href="tel:+77783959026">+7 (778) 395-90-26</a>
             </div>
             <div class="footer-contact">
-                <h3>
-<img src="src/icon-mail-gray.svg" alt="" width="24" height="24"> Post</h3>
+                <h3><img src="src/icon-mail-gray.svg" alt="" width="24" height="24"> Email</h3>
                 <a href="mailto:mail@example.com">mail@example.com</a>
             </div>
             <div class="footer-contact">
-                <h3>
-<img src="src/icon-place.svg" alt="" width="24" height="24"> Address</h3>
+                <h3><img src="src/icon-place.svg" alt="" width="24" height="24"> Address</h3>
                 <p>City city, street st. 90</p>
             </div>
             <div class="footer-contact">
-                <h3>
-<img src="src/icon-document.svg" alt="" width="24" height="24"> Leave a request</h3>
+                <h3><img src="src/icon-document.svg" alt="" width="24" height="24"> Leave a request</h3>
                 <a href="#consultation">Leave a request</a>
             </div>
         </div>

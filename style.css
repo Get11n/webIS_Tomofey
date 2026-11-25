@@ -19,16 +19,17 @@
 }
 
 html {
-    scroll-padding-top: 110px;
+    scroll-padding-top: 112px;
 }
 
 body {
     margin: 0;
-    min-width: 1200px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     font-family: "Inter", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
     color: #111827;
 }
 
@@ -36,12 +37,17 @@ body {
     flex: 1;
 }
 
+a {
+    color: inherit;
+}
+
+/* Десктоп: от 1200 px. */
 .site-header {
     position: fixed;
     top: 24px;
     left: 50%;
-    transform: translateX(-50%);
     z-index: 100;
+    transform: translateX(-50%);
     width: calc(100% - 80px);
     max-width: 1200px;
     min-height: 64px;
@@ -74,19 +80,25 @@ body {
 
 .navigation-list a {
     font-size: 13px;
-    color: #111827;
     text-decoration: none;
 }
 
-.header-contacts {
+.header-contacts,
+.header-phones,
+.header-contacts a {
     display: flex;
     align-items: center;
+}
+
+.header-contacts {
     gap: 16px;
 }
 
+.header-phones {
+    gap: 12px;
+}
+
 .header-contacts a {
-    display: inline-flex;
-    align-items: center;
     gap: 8px;
     font-size: 12px;
     white-space: nowrap;
@@ -94,31 +106,44 @@ body {
     text-decoration: none;
 }
 
-.header-phones {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
 .header-contacts img {
     flex-shrink: 0;
 }
 
+.header-actions {
+    display: none;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
 .hero {
     position: relative;
-    display: grid;
-    grid-template-columns: minmax(0, 660px) minmax(0, 1fr);
+    width: 100%;
+    max-width: 1440px;
     min-height: 900px;
-    padding-left: max(40px, calc((100% - 1200px) / 2));
-    overflow: hidden;
+    margin: 0 auto;
+    overflow: clip;
     background-color: #f3f4f9;
 }
 
-.hero-content {
+.hero-inner {
     position: relative;
     z-index: 1;
-    padding-top: 160px;
-    padding-bottom: 80px;
+    width: calc(100% - 80px);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 160px 0 80px;
+}
+
+.hero-content {
+    max-width: 660px;
 }
 
 .hero-description h1 {
@@ -135,16 +160,19 @@ body {
 .hero-description p {
     max-width: 610px;
     margin: 24px 0 0;
-    font-size: 16px;
-    line-height: 1.45;
 }
 
-.hero-image {
+.hero-visual {
     position: absolute;
     top: 0;
     right: 0;
     display: block;
     width: min(812px, 56.4%);
+}
+
+.hero-image {
+    display: block;
+    width: 100%;
     height: auto;
 }
 
@@ -171,6 +199,7 @@ body {
 }
 
 .form-field {
+    min-width: 0;
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -187,9 +216,10 @@ body {
     padding: 0 0 10px;
     border: 0;
     border-bottom: 1px solid #d1d5db;
-    font-family: inherit;
-    font-size: 16px;
+    border-radius: 0;
+    font: inherit;
     color: #111827;
+    background-color: #ffffff;
 }
 
 .form-field input::placeholder {
@@ -209,12 +239,66 @@ body {
     cursor: pointer;
 }
 
+.services {
+    width: calc(100% - 80px);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(260px, 0.9fr);
+    align-items: start;
+    gap: 120px;
+}
+
+.services-description h2 {
+    margin: 0 0 32px;
+    font-size: 36px;
+    line-height: 1.25;
+}
+
+.services-description h3 {
+    margin: 32px 0 16px;
+    font-size: 20px;
+}
+
+.services-description p {
+    margin: 0;
+}
+
+.technology-list {
+    overflow-wrap: anywhere;
+    color: #4b5563;
+}
+
+.services-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.services-list a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px 0;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.services-list span {
+    flex-shrink: 0;
+    font-size: 30px;
+    line-height: 1;
+    color: #0875ee;
+}
+
 .site-footer {
     flex-shrink: 0;
     width: calc(100% - 80px);
     max-width: 1200px;
     margin: 0 auto;
-    padding: 24px 32px;
+    padding: 32px;
     color: #ffffff;
     background-color: #111827;
     border-radius: 12px 12px 0 0;
@@ -232,11 +316,15 @@ body {
     gap: 32px;
 }
 
+.footer-contact {
+    min-width: 0;
+}
+
 .footer-contact h3 {
+    margin: 0 0 12px;
     display: flex;
     align-items: center;
     gap: 8px;
-    margin: 0 0 12px;
     font-size: 13px;
     font-weight: 400;
     color: #c1c7d2;
@@ -246,24 +334,326 @@ body {
 .footer-contact p {
     margin: 0;
     font-size: 16px;
-    line-height: 1.5;
-    color: #ffffff;
+    overflow-wrap: anywhere;
     text-decoration: none;
 }
 
-.site-footer > p {
-    margin: 28px 0 0;
-    font-size: 12px;
-    text-align: center;
-}
-
-.footer-contact h3 img {
+.footer-contact img,
+.footer-world img {
     flex-shrink: 0;
 }
 
 .footer-world {
+    margin: 28px 0 0;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 12px;
+    font-size: 12px;
+    text-align: center;
+}
+
+/* Брейкпоинт 1: меньше 1200 px. */
+@media (max-width: 1199px) {
+    html {
+        scroll-padding-top: 152px;
+    }
+
+    .site-header {
+        width: calc(100% - 64px);
+        flex-wrap: wrap;
+        row-gap: 12px;
+    }
+
+    .header-contacts {
+        flex-basis: 100%;
+        justify-content: flex-end;
+    }
+
+    .hero {
+        min-height: 800px;
+    }
+
+    .hero-inner {
+        width: calc(100% - 64px);
+        padding: 184px 0 64px;
+    }
+
+    .hero-content {
+        max-width: 560px;
+    }
+
+    .hero-description h1 {
+        font-size: 34px;
+    }
+
+    .hero-visual {
+        top: 128px;
+        width: 52%;
+    }
+
+    .consultation {
+        margin-top: 48px;
+    }
+
+    .consultation-form {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .consultation-form button {
+        grid-column: 1 / -1;
+        justify-self: start;
+        width: 160px;
+    }
+
+    .services {
+        width: calc(100% - 64px);
+        gap: 64px;
+    }
+
+    .services-description h2 {
+        font-size: 32px;
+    }
+
+    .services-list a {
+        font-size: 18px;
+    }
+
+    .site-footer {
+        width: calc(100% - 64px);
+    }
+
+    .footer-contacts {
+        gap: 24px;
+    }
+
+    .footer-contact a,
+    .footer-contact p {
+        font-size: 14px;
+    }
+}
+
+/* Брейкпоинт 2: меньше 992 px. */
+@media (max-width: 991px) {
+    html {
+        scroll-padding-top: 104px;
+    }
+
+    .site-header {
+        top: 16px;
+        width: calc(100% - 48px);
+        min-height: 64px;
+        flex-wrap: nowrap;
+    }
+
+    .main-navigation,
+    .header-contacts {
+        display: none;
+    }
+
+    .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .header-call {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+    }
+
+    .mobile-menu summary {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        list-style: none;
+        cursor: pointer;
+    }
+
+    .mobile-menu summary::-webkit-details-marker {
+        display: none;
+    }
+
+    .menu-icon {
+        width: 22px;
+        height: 2px;
+        background-color: #111827;
+        box-shadow: 0 -7px #111827, 0 7px #111827;
+    }
+
+    .mobile-navigation {
+        position: absolute;
+        top: calc(100% + 12px);
+        right: 0;
+        width: min(360px, 100%);
+        padding: 24px;
+        border-radius: 12px;
+        background-color: #ffffff;
+        box-shadow: 0 4px 24px rgba(17, 24, 39, 0.16);
+    }
+
+    .mobile-navigation ul {
+        margin: 0 0 16px;
+        padding: 0;
+        list-style: none;
+    }
+
+    .mobile-navigation a {
+        display: block;
+        padding: 10px 0;
+        overflow-wrap: anywhere;
+        text-decoration: none;
+    }
+
+    .mobile-navigation > a {
+        font-size: 13px;
+        color: #0875ee;
+    }
+
+    .hero {
+        min-height: 0;
+    }
+
+    .hero-inner {
+        width: calc(100% - 48px);
+        padding: 128px 0 48px;
+    }
+
+    .hero-content {
+        max-width: none;
+    }
+
+    .hero-description h1 {
+        max-width: 640px;
+    }
+
+    .hero-visual {
+        position: static;
+        width: min(100%, 398px);
+        margin: 0 auto;
+    }
+
+    .consultation-form {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 140px;
+    }
+
+    .consultation-form button {
+        grid-column: auto;
+        justify-self: stretch;
+        width: auto;
+    }
+
+    .services {
+        width: calc(100% - 48px);
+        padding: 64px 0;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 32px;
+    }
+
+    .footer-contacts {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 32px;
+    }
+
+    .site-footer {
+        width: calc(100% - 48px);
+    }
+}
+
+/* Брейкпоинт 3: меньше 576 px. */
+@media (max-width: 575px) {
+    .site-header {
+        width: calc(100% - 32px);
+        padding: 12px 16px;
+        gap: 12px;
+    }
+
+    .site-logo {
+        font-size: 20px;
+    }
+
+    .header-actions {
+        gap: 8px;
+    }
+
+    .hero-inner {
+        width: calc(100% - 32px);
+        padding: 112px 0 24px;
+    }
+
+    .hero-description h1 {
+        font-size: 28px;
+        line-height: 1.35;
+    }
+
+    .hero-description p {
+        margin-top: 20px;
+        font-size: 14px;
+    }
+
+    .hero-visual {
+        width: min(100%, 410px);
+    }
+
+    .consultation {
+        margin-top: 32px;
+        padding: 20px;
+    }
+
+    .consultation h2 {
+        margin-bottom: 24px;
+        font-size: 18px;
+    }
+
+    .consultation-form {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+    }
+
+    .consultation-form button {
+        width: 100%;
+    }
+
+    .services {
+        width: calc(100% - 32px);
+        padding: 48px 0;
+    }
+
+    .services-description h2 {
+        margin-bottom: 24px;
+        font-size: 28px;
+    }
+
+    .services-description h3 {
+        margin-top: 24px;
+        font-size: 18px;
+    }
+
+    .services-description p {
+        font-size: 14px;
+    }
+
+    .site-footer {
+        width: calc(100% - 32px);
+        padding: 24px;
+    }
+
+    .site-footer h2 {
+        font-size: 24px;
+    }
+
+    .footer-contacts {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
+    }
+
+    .footer-world {
+        align-items: flex-start;
+        font-size: 11px;
+    }
 }
