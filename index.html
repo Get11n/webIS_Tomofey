@@ -1,282 +1,143 @@
-﻿
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IT Website</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="site-header">
-        <a class="site-logo" href="index.html">IT WEBSITE</a>
-        <nav class="main-navigation">
+        <a class="site-logo" href="index.html">THOUSAND</a>
+
+        <nav class="main-navigation" aria-label="Main navigation">
             <ul class="navigation-list">
                 <li><a href="#services">Services</a></li>
-                <li><a href="#team">Media</a></li>
-                <li><a href="#projects">Cases</a></li>
-                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#">Media</a></li>
+                <li><a href="#">Cases</a></li>
+                <li><a href="#">FAQ</a></li>
                 <li><a href="#contacts">Contacts</a></li>
             </ul>
         </nav>
+
         <div class="header-contacts">
-            <a href="tel:+71111111111">+7 (111) 111-11-11</a>
-            <a href="tel:+71111111112">+7 (111) 111-11-12</a>
-            <a href="mailto:itcompany@example.com">itcompany@example.com</a>
+            <div class="header-phones">
+                <img src="src/icon-phone.svg" alt="" width="24" height="24">
+                <a href="tel:+77072548147">+7 (707) 254-81-47</a>
+                <a href="tel:+77783959026">+7 (778) 395-90-26</a>
+            </div>
+            <a href="mailto:thousanditcompany@gmail.com">
+                <img src="src/icon-mail.svg" alt="" width="24" height="24">
+                thousanditcompany@gmail.com
+            </a>
+        </div>
+
+        <!-- На узком экране меню открывается стандартным элементом details. -->
+        <div class="header-actions">
+            <a class="header-call" href="tel:+77072548147" aria-label="Call us">
+                <img src="src/icon-phone.svg" alt="" width="24" height="24">
+            </a>
+            <details class="mobile-menu">
+                <summary>
+                    <span class="menu-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Navigation menu</span>
+                </summary>
+                <nav class="mobile-navigation" aria-label="Mobile navigation">
+                    <ul>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#">Media</a></li>
+                        <li><a href="#">Cases</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#contacts">Contacts</a></li>
+                    </ul>
+                    <a href="tel:+77072548147">+7 (707) 254-81-47</a>
+                    <a href="mailto:thousanditcompany@gmail.com">thousanditcompany@gmail.com</a>
+                </nav>
+            </details>
         </div>
     </header>
 
-    <hr>
-
     <main class="main-content">
+        <!-- Первый экран. -->
+        <section class="hero">
+            <div class="hero-inner">
+                <div class="hero-content">
+                    <div class="hero-description">
+                        <h1>Development of <span class="accent">mobile applications</span> and <span class="accent">web services</span> of any complexity</h1>
+                        <p>We create mobile applications for iOS and Android that transfer your business to your customers' devices.</p>
+                    </div>
 
-        <div class="hero">
-            <section class="hero-content">
-                <div class="hero-description">
-                    <h1>Development of mobile applications and web services of any complexity</h1>
-                    <p>We create mobile applications for iOS and Android that transfer your business to your customers devices.</p>
+                    <div class="consultation" id="consultation">
+                        <h2>Leave your contacts and we will call you back within 30 minutes</h2>
+                        <form class="consultation-form">
+                            <div class="form-field">
+                                <label for="consultation-phone">Phone number</label>
+                                <input type="tel" id="consultation-phone" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel">
+                            </div>
+                            <div class="form-field">
+                                <label for="consultation-name">Full name</label>
+                                <input type="text" id="consultation-name" name="fullname" placeholder="Your full name" autocomplete="name">
+                            </div>
+                            <button type="submit">Get consultation</button>
+                        </form>
+                    </div>
                 </div>
-                <div class="consultation">
-                    <h2>Leave your contacts and we will call you back within 30 minutes</h2>
-                    <form class="consultation-form">
+            </div>
 
-                        <label for="phone">Phone number</label>
-                        <input type="tel" name="phone" placeholder="+7 (111) 111-11-11">
-                        
-                        <label for="name">Full name</label>
-                        <input type="text" name="fullname" placeholder="Ivan Ivanov">
-                        
-                        <button type="submit">Get consultation</button>
-                    </form>
-                </div>
-            </section>
-        </div>
+            <!-- Браузер выбирает подходящую картинку по ширине окна. -->
+            <picture class="hero-visual">
+                <source media="(max-width: 575px)" srcset="src/hero-mobile.webp">
+                <source media="(max-width: 1199px)" srcset="src/hero-tablet.webp">
+                <img class="hero-image" src="src/hero-desktop.webp" alt="Examples of mobile application screens" width="812" height="900">
+            </picture>
+        </section>
 
-        <hr>
-
-
+        <!-- Второй экран. -->
         <section class="services" id="services">
             <div class="services-description">
                 <h2>Full development cycle</h2>
                 <p>We use proven technologies.</p>
                 <h3>Web</h3>
-                <p>PHP / JavaScript / Node.js / WebSocket / Socket.io / Vue.js / Nuxt / MySQL / Laravel / Go / Django / Python</p>
+                <p class="technology-list">PHP / JavaScript / Node.js / WebSocket / Socket.io / Vue.js / Nuxt / MySQL / Laravel / Go / Django / Python</p>
                 <h3>Mobile</h3>
-                <p>Swift / Kotlin / Alamofire / Firebase / CoreData / Room / Realm / Coroutine / RxJava / RxSwift / Unit Test / Navigation</p>
+                <p class="technology-list">Swift / Kotlin / Alamofire / Firebase / CoreData / Room / Realm / Coroutine / RxJava / RxSwift / Unit Test / Navigation</p>
             </div>
-            <ul class="services-list">
-                <li class="service-item">iOS development</li>
-                <li class="service-item">Android development</li>
-                <li class="service-item">Web development</li>
-                <li class="service-item">UI/UX design</li>
-                <li class="service-item">Testing</li>
-                <li class="service-item">Launch</li>
-                <li class="service-item">IT consulting</li>
-            </ul>
-        </section>
 
-        <hr>
-
-
-        <section class="industries">
-            <h2>Developed more than 100 projects in 15 industries</h2>
-            <ul class="industries-list">
-                <li class="industry-item">Social media</li>
-                <li class="industry-item">Fitness and sport</li>
-                <li class="industry-item">Bank</li>
-                <li class="industry-item">Construction</li>
-                <li class="industry-item">Game projects</li>
-                <li class="industry-item">Education</li>
-                <li class="industry-item">Auto, transport</li>
-                <li class="industry-item">Medicine, health</li>
-                <li class="industry-item">Restaurants, food delivery</li>
-                <li class="industry-item">Marketplaces</li>
-                <li class="industry-item">AR technology</li>
-                <li class="industry-item">TV series</li>
-                <li class="industry-item">Startups</li>
-                <li class="industry-item">Religion</li>
-                <li class="industry-item">Online courses</li>
-            </ul>
-        </section>
-
-        <hr>
-
-
-        <section class="projects" id="projects">
-            <h2>Projects we are proud of</h2>
-            <p>Our software development company is proud of the clients we have worked with. We enjoy a long-term partnership.</p>
-            <nav class="projects-navigation">
-                <ul class="projects-list">
-                    <li class="project-item"><a href="#iteka">I-teka</a></li>
-                    <li class="project-item">Dauletten</li>
-                    <li class="project-item">Guru Bosch</li>
-                    <li class="project-item">Santo</li>
-                    <li class="project-item">Home Credit Bank</li>
-                    <li class="project-item">BI Partners</li>
-                    <li class="project-item">Europharma</li>
+            <nav class="services-navigation" aria-label="Development services">
+                <ul class="services-list">
+                    <li><a href="#consultation">iOS development <span aria-hidden="true">›</span></a></li>
+                    <li><a href="#consultation">Android development <span aria-hidden="true">›</span></a></li>
+                    <li><a href="#consultation">Web development <span aria-hidden="true">›</span></a></li>
+                    <li><a href="#consultation">UI/UX design <span aria-hidden="true">›</span></a></li>
+                    <li><a href="#consultation">Testing <span aria-hidden="true">›</span></a></li>
+                    <li><a href="#consultation">Launch <span aria-hidden="true">›</span></a></li>
+                    <li><a href="#consultation">IT consulting <span aria-hidden="true">›</span></a></li>
                 </ul>
             </nav>
-            <article class="project" id="iteka">
-                <div class="project-description">
-                    <h3>I-teka</h3>
-                    <p>The application helps people find available medicines in city pharmacies.</p>
-                    <p>Business analysis / iOS / Android / QA / UI/UX Design</p>
-                    <ul class="project-details">
-                        <li>Kazakhstan</li>
-                        <li>Medicine</li>
-                    </ul>
-                    <ul class="project-statistics">
-                        <li>User growth 400%</li>
-                        <li>Active users 200,000+</li>
-                    </ul>
-                    <ul class="project-stores">
-                        <li>App Store</li>
-                        <li>Google Play</li>
-                    </ul>
-                </div>
-            </article>
-        </section>
-
-        <hr>
-
-        <section class="project-discussion" id="project-discussion">
-            <div class="discussion-description">
-                <h2>Let's discuss your project</h2>
-                <p>
-                    Let's figure out how to create an effective application, 
-                    its cost and development time.
-                </p>
-            </div>
-            <form class="discussion-form">
-                <label for="discussion-phone">Best phone number</label>
-                <input type="tel" id="discussion-phone" name="phone" placeholder="+7 (111) 111-11-11">
-                
-                <label for="discussion-name">Full name</label>
-                <input type="text" id="discussion-name" name="fullname" placeholder="Timoxa Van">
-                
-                <button type="submit">Discuss the project</button>
-            </form>
-        </section>
-
-        <hr>
-
-        <section class="development-stages">
-            <h2>Application Development Stages</h2>
-            <div class="stages-list">
-                <article class="stage-card">
-                    <h3>Analysis</h3>
-                    <p>We write technical specifications, taking into account business processes and user needs.</p>
-                </article>
-                <article class="stage-card">
-                    <h3>Design</h3>
-                    <p>We adapt the customer's corporate identity to platform guidelines and design convenient interfaces.</p>
-                </article>
-                <article class="stage-card">
-                    <h3>Development</h3>
-                    <p>We create an extensible architecture, write clean code and integrate customer technologies.</p>
-                </article>
-                <article class="stage-card">
-                    <h3>Testing</h3>
-                    <p>We test functionality, fix bugs and adapt the application to different phone resolutions.</p>
-                </article>
-                <article class="stage-card">
-                    <h3>Launching</h3>
-                    <p>We prepare the application page and publish the application in the App Store and Google Play.</p>
-                </article>
-                <article class="stage-card">
-                    <h3>Support</h3>
-                    <p>We monitor stability and update the application for new devices and operating system versions.</p>
-                </article>
-            </div>
-        </section>
-
-        <hr>
-
-        <!-- Команда: описание и фото. -->
-        <section class="team">
-            <div class="team-description">
-                <h2>Our team</h2>
-                <p>Thousand is a full-cycle digital production company with its own product analytics, design, web and mobile development.</p>
-                <dl class="team-statistics">
-                    <dt>Team members</dt>
-                    <dd>28</dd>
-                    <dt>Projects</dt>
-                    <dd>100+</dd>
-                    <dt>In IT</dt>
-                    <dd>7 years</dd>
-                </dl>
-                <p>All the necessary specialists, from a designer to a tester, are on our staff.</p>
-            </div>
-        </section>
-
-        <hr>
-
-        <!-- Книга: заголовок, форма и обложка. -->
-        <section class="free-book">
-            <h2>Get the book for free by leaving your contacts</h2>
-            <form class="book-form">
-                <label for="book-phone">Phone number</label>
-                <input type="tel" id="book-phone" name="phone">
-                <label for="book-name">Full name</label>
-                <input type="text" id="book-name" name="fullname">
-                <label for="book-email">Email</label>
-                <input type="email" id="book-email" name="email">
-                <button type="submit">Send me ebook to my mail</button>
-            </form>
-        </section>
-
-        <hr>
-
-        <!-- FAQ: общий контейнер и отдельные вопросы. -->
-        <section class="faq" id="faq">
-            <h2>FAQ</h2>
-            <div class="faq-list">
-                <div class="faq-item">
-                    <h3>What is the cost of a mobile application?</h3>
-                </div>
-                <div class="faq-item">
-                    <h3>Do you provide a guarantee for the mobile application?</h3>
-                </div>
-                <div class="faq-item">
-                    <h3>How long will development take?</h3>
-                    <p>Development time depends on the application requirements, company characteristics and customer wishes.</p>
-                    <p>Average development time:</p>
-                    <ul class="development-time-list">
-                        <li>Medium projects: up to 3 months.</li>
-                        <li>Large projects: about 4–6 months.</li>
-                    </ul>
-                    <p>For a more accurate estimate, we need to determine the application's main task, logic and functionality.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>I will not tell my idea, do you guarantee confidentiality?</h3>
-                </div>
-            </div>
         </section>
     </main>
-
-    <hr>
-
 
     <footer class="site-footer" id="contacts">
         <h2>IT WEBSITE</h2>
         <div class="footer-contacts">
             <div class="footer-contact">
-                <h3>Contact nums</h3>
+                <h3><img src="src/icon-phone-gray.svg" alt="" width="24" height="24"> Contact number</h3>
                 <a href="tel:+77783959026">+7 (778) 395-90-26</a>
             </div>
             <div class="footer-contact">
-                <h3>Post</h3>
+                <h3><img src="src/icon-mail-gray.svg" alt="" width="24" height="24"> Email</h3>
                 <a href="mailto:mail@example.com">mail@example.com</a>
             </div>
             <div class="footer-contact">
-                <h3>Address</h3>
+                <h3><img src="src/icon-place.svg" alt="" width="24" height="24"> Address</h3>
                 <p>City city, street st. 90</p>
             </div>
             <div class="footer-contact">
-                <h3>Leave a request</h3>
-                <a href="#project-discussion">Leave a request</a>
+                <h3><img src="src/icon-document.svg" alt="" width="24" height="24"> Leave a request</h3>
+                <a href="#consultation">Leave a request</a>
             </div>
         </div>
-        <p>We work throughout the world.</p>
+        <p class="footer-world"><img src="src/icon-map.png" alt="" width="31" height="16"> We work throughout the world.</p>
     </footer>
 </body>
 </html>
